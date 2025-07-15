@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="text-xl font-bold text-primary">Vandana Patil</div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <button
