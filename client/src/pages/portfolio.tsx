@@ -5,6 +5,7 @@ import About from "@/components/about";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
 import Education from "@/components/education";
+import Experience from "@/components/experience";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
@@ -29,8 +30,9 @@ export default function Portfolio() {
       <Hero />
       <About />
       <Skills />
-      <Projects />
       <Education />
+      <Projects />
+      <Experience />
       <Contact />
       <Footer />
     </div>

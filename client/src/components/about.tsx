@@ -1,65 +1,73 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Users, Zap, Target } from "lucide-react";
+
+import { Card } from "@/components/ui/card";
+import { GraduationCap, Code, Lightbulb } from "lucide-react";
 
 export default function About() {
-  const qualities = [
+  const highlights = [
     {
-      icon: <Target className="h-5 w-5" />,
+      icon: <GraduationCap className="h-8 w-8" />,
+      title: "Academic Excellence",
+      description: "Maintaining high GPA while participating in tech competitions."
+    },
+    {
+      icon: <Code className="h-8 w-8" />,
+      title: "Technical Skills",
+      description: "Learning Core Java and Python with hands-on project experience."
+    },
+    {
+      icon: <Lightbulb className="h-8 w-8" />,
       title: "Problem Solver",
-      description: "Analytical thinking and creative solutions"
-    },
-    {
-      icon: <Users className="h-5 w-5" />,
-      title: "Team Player",
-      description: "Collaborative approach to complex challenges"
-    },
-    {
-      icon: <Zap className="h-5 w-5" />,
-      title: "Quick Learner",
-      description: "Adaptable to new technologies and methodologies"
-    },
-    {
-      icon: <CheckCircle className="h-5 w-5" />,
-      title: "Detail-Oriented",
-      description: "Committed to quality and precision"
+      description: "Tackling challenges through internships and innovative solutions."
     }
   ];
 
   return (
-    <section id="about" className="py-16 bg-white">
+    <section id="about" className="py-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About Me</h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 className="text-2xl font-semibold mb-4 text-gray-900">Engineering Excellence</h3>
-            <p className="text-gray-700 mb-6">
-              As a fourth-year engineering student, I've developed a strong foundation in both theoretical concepts 
-              and practical application. My journey has been focused on bridging the gap between academic learning 
-              and real-world problem-solving.
-            </p>
-            <p className="text-gray-700 mb-6">
-              I'm particularly interested in software development, system design, and emerging technologies. 
-              My goal is to contribute to innovative projects that make a meaningful impact on society.
-            </p>
-            <div className="grid grid-cols-2 gap-4">
-              {qualities.map((quality, index) => (
-                <Card key={index} className="bg-gray-50 border-none">
-                  <CardContent className="p-4">
-                    <div className="flex items-center mb-2 text-primary">
-                      {quality.icon}
-                      <h4 className="font-semibold ml-2">{quality.title}</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">{quality.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            About <span className="text-cyan-400">Me</span>
+          </h2>
+          <p className="text-gray-300 text-lg">Aspiring software developer</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                I'm Vandana, a passionate Computer Science and Engineering student at KSSEM, with a growing interest in 
+                software development and emerging technologies.
+              </p>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                I'm currently focused on learning Core Java and building real-world project experience in Python through 
+                my academic work. I enjoy solving problems, exploring programming concepts, and understanding how 
+                technology can make a real impact.
+              </p>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                As a self-driven learner, I'm always curious to explore new tools, frameworks, and best practices in 
+                development. I'm also working on improving my understanding of object-oriented programming and data 
+                structures to strengthen my technical foundation.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                Beyond academics, I love reading books—especially those that help me grow technically and personally 
+                and I value learning from others through conversations and shared experiences.
+              </p>
             </div>
-          </div>
-          <div className="flex justify-center">
-            <div className="w-full max-w-md h-96 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-8xl mb-4">👩‍💻</div>
-                <p className="text-gray-600 font-medium">Engineering Workspace</p>
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 gap-6">
+                {highlights.map((highlight, index) => (
+                  <Card key={index} className="bg-slate-800/50 border-slate-700 p-6 hover:bg-slate-700/50 transition-all duration-300 group">
+                    <div className="flex items-start gap-4">
+                      <div className="text-cyan-400 group-hover:scale-110 transition-transform duration-300">
+                        {highlight.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-white font-semibold mb-2">{highlight.title}</h3>
+                        <p className="text-gray-300 text-sm">{highlight.description}</p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>

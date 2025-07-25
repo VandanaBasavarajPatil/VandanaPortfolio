@@ -1,99 +1,80 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap, Award, Calendar, MapPin } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, Building } from "lucide-react";
 
 export default function Education() {
-  const coursework = [
-    "Data Structures & Algorithms",
-    "Object-Oriented Programming",
-    "Database Management Systems",
-    "Software Engineering",
-    "Computer Networks"
-  ];
-
-  const achievements = [
-    "Current CGPA: 8.2/10",
-    "Dean's List - 3 semesters",
-    "Winner - College Project Competition",
-    "Active Member - Technical Society",
-    "Completed 2 Industry Internships"
+  const educationData = [
+    {
+      type: "Secondary Education",
+      level: "Pre-University", 
+      institution: "CSA COMP PU College",
+      location: "Gokak, Belagavi",
+      period: "2020 – 2022",
+      description: "Affiliated with Department of Pre-University Education, Karnataka",
+      icon: "🎓"
+    },
+    {
+      type: "Bachelor of Engineering – Computer Science",
+      level: "Engineering",
+      institution: "K.S. School of Engineering and Management", 
+      location: "Bengaluru",
+      period: "2022 – Present",
+      description: "Currently pursuing final year with focus on software development and machine learning projects.",
+      icon: "🏫"
+    }
   ];
 
   return (
-    <section id="education" className="py-16 bg-gray-50">
+    <section id="education" className="py-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Education</h2>
-        <div className="max-w-4xl mx-auto">
-          <Card className="bg-white shadow-sm">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/3">
-                  <div className="w-full h-48 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <GraduationCap className="h-16 w-16 text-primary mx-auto mb-4" />
-                      <p className="text-gray-600 font-medium">Engineering Campus</p>
-                    </div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            My <span className="text-cyan-400">Education</span>
+          </h2>
+          <p className="text-gray-300 text-lg">
+            Academic journey and educational background
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          {educationData.map((edu, index) => (
+            <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 transition-all duration-300 group">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-cyan-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="h-6 w-6 text-cyan-400" />
+                  </div>
+                  <div className="flex-1">
+                    <Badge variant="outline" className="border-cyan-400 text-cyan-400 mb-2">
+                      {edu.level}
+                    </Badge>
+                    <h3 className="text-xl font-bold text-white mb-1">{edu.type}</h3>
                   </div>
                 </div>
-                <div className="md:w-2/3">
-                  <div className="flex items-start gap-3 mb-4">
-                    <GraduationCap className="h-6 w-6 text-primary mt-1" />
-                    <div>
-                      <h3 className="text-2xl font-semibold mb-2">Bachelor of Engineering</h3>
-                      <p className="text-lg text-primary mb-2">Computer Science Engineering</p>
-                    </div>
+
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center gap-2 text-cyan-400">
+                    <Building className="h-4 w-4" />
+                    <span className="font-medium">{edu.institution}</span>
                   </div>
-                  
-                  <div className="flex items-center gap-4 mb-4 text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4" />
-                      <span>Expected Graduation: 2025</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4" />
-                      <span>Mumbai, India</span>
-                    </div>
+
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <MapPin className="h-4 w-4" />
+                    <span>{edu.location}</span>
                   </div>
-                  
-                  <p className="text-gray-700 mb-6">
-                    Currently pursuing my Bachelor's degree in Computer Science Engineering with a focus on 
-                    software development, data structures, algorithms, and system design. Maintaining a strong 
-                    academic record while actively participating in practical projects and internships.
-                  </p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold mb-3 flex items-center gap-2">
-                        <Award className="h-4 w-4 text-primary" />
-                        Relevant Coursework:
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {coursework.map((course, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {course}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-3 flex items-center gap-2">
-                        <Award className="h-4 w-4 text-primary" />
-                        Achievements:
-                      </h4>
-                      <ul className="text-gray-600 space-y-1 text-sm">
-                        {achievements.map((achievement, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <Calendar className="h-4 w-4" />
+                    <span>{edu.period}</span>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {edu.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
