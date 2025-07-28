@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Twitter, ChevronDown } from "lucide-react";
@@ -7,13 +6,13 @@ export default function Hero() {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  
+
   const phrases = ["Web Developer", "AI/ML Enthusiast", "Tech Explorer"];
-  
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       const currentPhrase = phrases[currentIndex];
-      
+
       if (!isDeleting && currentText === currentPhrase) {
         setTimeout(() => setIsDeleting(true), 1500);
       } else if (isDeleting && currentText === "") {
@@ -25,7 +24,7 @@ export default function Hero() {
         setCurrentText(currentPhrase.substring(0, currentText.length + 1));
       }
     }, isDeleting ? 50 : 100);
-    
+
     return () => clearTimeout(timeout);
   }, [currentText, currentIndex, isDeleting, phrases]);
 
@@ -43,7 +42,7 @@ export default function Hero() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-2xl"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 pt-20 pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 min-h-[80vh]">
           {/* Left side - Profile Image */}
