@@ -50,8 +50,7 @@ export default function Hero() {
           style={{
             background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(18, 186, 222, 0.2), transparent 40%)`,
           }}
-        /></div>
-      </div>
+        />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -65,7 +64,7 @@ export default function Hero() {
               <div className="absolute inset-2 rounded-full bg-[#12bade] blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
 
               {/* Main profile circle */}
-              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-[#2e647f] via-[#3d77b0] to-[#2e647f] border-2 border-[#12bade]/50 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#12bade]/20"></div>
+              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-[#2e647f] via-[#3d77b0] to-[#2e647f] border-2 border-[#12bade]/50 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#12bade]/20">
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#12bade]/10 via-transparent to-[#12bade]/10"></div>
 
