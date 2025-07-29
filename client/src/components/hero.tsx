@@ -50,8 +50,8 @@ export default function Hero() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               {/* Glowing background */}
-              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#12bade] opacity-20 blur-2xl animate-pulse-glow"></div>
-              <div className="relative w-80 h-80 rounded-full border-2 border-[#12bade] flex items-center justify-center overflow-hidden shadow-2xl bg-transparent">
+              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#4fc3f7] opacity-10 blur-xl animate-pulse-glow"></div>
+              <div className="relative w-80 h-80 rounded-full border-2 border-[#4fc3f7] flex items-center justify-center overflow-hidden shadow-2xl bg-transparent">
                 <h1 className="text-6xl font-bold text-white font-mono">VP</h1>
               </div>
             </div>
@@ -60,13 +60,13 @@ export default function Hero() {
           {/* Right side - Content */}
           <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-[#12bade] text-lg font-medium animate-fade-in">Hello, I'm</p>
+              <p className="text-[#4fc3f7] text-lg font-medium animate-fade-in">Hello, I'm</p>
               <h1 className="text-4xl md:text-5xl font-bold text-white animate-slide-up">
                 Vandana Patil
               </h1>
               <div className="text-xl md:text-2xl text-gray-300 animate-slide-up animation-delay-200">
-                And I'm a <span className="text-[#12bade] font-semibold">{text}</span>
-                <span className="animate-pulse text-[#12bade]">|</span>
+                And I'm a <span className="text-[#4fc3f7] font-semibold">{text}</span>
+                <span className="animate-pulse text-[#4fc3f7]">|</span>
               </div>
             </div>
 
@@ -77,20 +77,20 @@ export default function Hero() {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button variant="outline" size="icon" className="rounded-md border-[#12bade] text-[#12bade] hover:bg-[#12bade] hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#4fc3f7] text-[#4fc3f7] hover:bg-[#4fc3f7] hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="rounded-md border-[#12bade] text-[#12bade] hover:bg-[#12bade] hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#4fc3f7] text-[#4fc3f7] hover:bg-[#4fc3f7] hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="rounded-md border-[#12bade] text-[#12bade] hover:bg-[#12bade] hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#4fc3f7] text-[#4fc3f7] hover:bg-[#4fc3f7] hover:text-white transition-colors">
                 <Github className="h-5 w-5" />
               </Button>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button className="bg-[#12bade] hover:bg-[#0ea5cc] text-white px-8 py-3 rounded-md font-medium">
+              <Button className="bg-[#4fc3f7] hover:bg-[#29b6f6] text-white px-8 py-3 rounded-md font-medium">
                 Hire Me
               </Button>
               <Button 
