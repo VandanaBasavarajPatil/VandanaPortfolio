@@ -50,8 +50,8 @@ export default function Hero() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               {/* Glowing background */}
-              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#4fc3f7] opacity-10 blur-xl animate-pulse-glow"></div>
-              <div className="relative w-80 h-80 rounded-full border-2 border-[#4fc3f7] flex items-center justify-center overflow-hidden shadow-2xl bg-transparent">
+              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#00bcd4] opacity-10 blur-xl animate-pulse-glow"></div>
+              <div className="relative w-80 h-80 rounded-full border-2 border-[#00bcd4] flex items-center justify-center overflow-hidden shadow-2xl bg-transparent">
                 <h1 className="text-6xl font-bold text-white font-mono">VP</h1>
               </div>
             </div>
@@ -60,42 +60,42 @@ export default function Hero() {
           {/* Right side - Content */}
           <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-[#4fc3f7] text-lg font-medium animate-fade-in">Hello, I'm</p>
-              <h1 className="text-4xl md:text-5xl font-bold text-white animate-slide-up">
+              <p className="text-[#00bcd4] text-lg font-medium animate-fade-in">Hello, I'm</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-[#00bcd4] animate-slide-up">
                 Vandana Patil
               </h1>
               <div className="text-xl md:text-2xl text-gray-300 animate-slide-up animation-delay-200">
-                And I'm a <span className="text-[#4fc3f7] font-semibold">{text}</span>
-                <span className="animate-pulse text-[#4fc3f7]">|</span>
+                And I'm a <span className="text-[#00bcd4] font-semibold">{text}</span>
+                <span className="animate-pulse text-[#00bcd4]">|</span>
               </div>
             </div>
 
-            <p className="text-lg text-gray-400 max-w-2xl animate-fade-in animation-delay-600">
+            <p className="text-lg text-gray-300 max-w-2xl animate-fade-in animation-delay-600">
               Final Year CSE Student and aspiring software developer, focused on hands-on 
               projects and continuous learning to build innovative solutions through code.
             </p>
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button variant="outline" size="icon" className="rounded-md border-[#4fc3f7] text-[#4fc3f7] hover:bg-[#4fc3f7] hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="rounded-md border-[#4fc3f7] text-[#4fc3f7] hover:bg-[#4fc3f7] hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="rounded-md border-[#4fc3f7] text-[#4fc3f7] hover:bg-[#4fc3f7] hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors">
                 <Github className="h-5 w-5" />
               </Button>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button className="bg-[#4fc3f7] hover:bg-[#29b6f6] text-white px-8 py-3 rounded-md font-medium">
+              <Button className="bg-[#00bcd4] hover:bg-[#00acc1] text-white px-8 py-3 rounded-md font-medium">
                 Hire Me
               </Button>
               <Button 
                 variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-md font-medium"
+                className="border-white text-white hover:bg-white hover:text-[#0f1b2e] px-8 py-3 rounded-md font-medium"
                 onClick={scrollToNext}
               >
                 Contact Me

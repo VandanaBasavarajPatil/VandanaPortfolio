@@ -63,9 +63,9 @@
     scroll-behavior: smooth;
   }
 
-  /* Hero section maintains gradient background */
+  /* Hero section with darker navy background like reference */
   #home {
-    background: linear-gradient(135deg, #1a2440 0%, #253355 50%, #1a2440 100%) !important;
+    background: linear-gradient(135deg, #0f1b2e 0%, #1a2847 50%, #0f1b2e 100%) !important;
   }
 }
 
