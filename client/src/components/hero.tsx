@@ -44,68 +44,61 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
-      </div>
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Profile Image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               {/* Glowing background */}
-              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#12bade] opacity-30 blur-xl animate-pulse-glow"></div>
-              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-[#12bade] flex items-center justify-center overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#12bade] opacity-20 blur-2xl animate-pulse-glow"></div>
+              <div className="relative w-80 h-80 rounded-full border-2 border-[#12bade] flex items-center justify-center overflow-hidden shadow-2xl bg-transparent">
                 <h1 className="text-6xl font-bold text-white font-mono">VP</h1>
               </div>
             </div>
           </div>
 
           {/* Right side - Content */}
-          <div className="space-y-8 text-center lg:text-left">
+          <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-blue-400 text-lg font-medium animate-fade-in">Hello, I'm</p>
-              <h1 className="text-4xl md:text-6xl font-bold text-white animate-slide-up">
+              <p className="text-[#12bade] text-lg font-medium animate-fade-in">Hello, I'm</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white animate-slide-up">
                 Vandana Patil
               </h1>
-              <h2 className="text-xl md:text-2xl text-gray-300 animate-slide-up animation-delay-200">
-                Final Year CSE Student | Aspiring Software Developer
-              </h2>
-              <div className="text-xl md:text-2xl text-blue-400 animate-slide-up animation-delay-400">
-                <span>{text}</span>
-                <span className="animate-pulse">|</span>
+              <div className="text-xl md:text-2xl text-gray-300 animate-slide-up animation-delay-200">
+                And I'm a <span className="text-[#12bade] font-semibold">{text}</span>
+                <span className="animate-pulse text-[#12bade]">|</span>
               </div>
             </div>
 
-            <p className="text-lg text-gray-400 max-w-lg animate-fade-in animation-delay-600">
-              Passionate about creating innovative solutions through code and 
-              exploring the endless possibilities of technology.
+            <p className="text-lg text-gray-400 max-w-2xl animate-fade-in animation-delay-600">
+              Final Year CSE Student and aspiring software developer, focused on hands-on 
+              projects and continuous learning to build innovative solutions through code.
             </p>
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button variant="outline" size="icon" className="hover:bg-blue-600 hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#12bade] text-[#12bade] hover:bg-[#12bade] hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="hover:bg-blue-600 hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#12bade] text-[#12bade] hover:bg-[#12bade] hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="hover:bg-blue-600 hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="rounded-md border-[#12bade] text-[#12bade] hover:bg-[#12bade] hover:text-white transition-colors">
                 <Github className="h-5 w-5" />
               </Button>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full">
-                Download CV
+              <Button className="bg-[#12bade] hover:bg-[#0ea5cc] text-white px-8 py-3 rounded-md font-medium">
+                Hire Me
               </Button>
               <Button 
                 variant="outline" 
-                className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full"
+                className="border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-md font-medium"
                 onClick={scrollToNext}
               >
-                About Me
+                Contact Me
               </Button>
             </div>
           </div>
