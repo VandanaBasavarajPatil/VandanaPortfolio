@@ -1,104 +1,134 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, ChevronDown } from "lucide-react";
+import { ChevronDown, Github, Linkedin, Twitter } from "lucide-react";
 
 export default function Hero() {
-  const [currentText, setCurrentText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const phrases = ["Web Developer", "AI/ML Enthusiast", "Tech Explorer"];
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const currentPhrase = phrases[currentIndex];
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
 
-      if (!isDeleting && currentText === currentPhrase) {
-        setTimeout(() => setIsDeleting(true), 1500);
-      } else if (isDeleting && currentText === "") {
-        setIsDeleting(false);
-        setCurrentIndex((prev) => (prev + 1) % phrases.length);
-      } else if (isDeleting) {
-        setCurrentText(currentPhrase.substring(0, currentText.length - 1));
-      } else {
-        setCurrentText(currentPhrase.substring(0, currentText.length + 1));
-      }
-    }, isDeleting ? 50 : 100);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
-    return () => clearTimeout(timeout);
-  }, [currentText, currentIndex, isDeleting, phrases]);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const scrollToNext = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-2xl"></div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted">
+        {/* Floating particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/20 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`,
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Dynamic gradient based on mouse position */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(59, 130, 246, 0.15), transparent 40%)`,
+          }}
+        />
       </div>
 
-      <div className="container mx-auto px-4 pt-20 pb-16 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 min-h-[80vh]">
-          {/* Left side - Profile Image */}
-          <div className="lg:w-1/2 flex justify-center">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full border-2 border-cyan-400/30 p-2">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
-                  <div className="text-6xl font-bold text-cyan-400">VP</div>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Profile Image with VP */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative group">
+              {/* Outer glow ring */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-primary blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse"></div>
+              
+              {/* Main profile circle */}
+              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-card via-muted to-card border-2 border-primary/30 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                {/* Background pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+                
+                {/* Floating elements inside circle */}
+                <div className="absolute inset-4 rounded-full">
+                  {[...Array(8)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-1 bg-primary/40 rounded-full animate-bounce"
+                      style={{
+                        left: `${20 + Math.random() * 60}%`,
+                        top: `${20 + Math.random() * 60}%`,
+                        animationDelay: `${Math.random() * 2}s`,
+                        animationDuration: `${2 + Math.random()}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+                
+                {/* VP Text */}
+                <div className="relative z-10">
+                  <h1 className="text-6xl font-bold text-primary font-mono tracking-wider">VP</h1>
                 </div>
               </div>
-              {/* Glowing ring */}
-              <div className="absolute inset-0 rounded-full border border-cyan-400/50 animate-pulse"></div>
             </div>
           </div>
 
           {/* Right side - Content */}
-          <div className="lg:w-1/2 text-center lg:text-left">
-            <p className="text-cyan-400 text-lg mb-2">Hello, I'm</p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Vandana Patil
-            </h1>
-            <div className="text-xl md:text-2xl mb-6">
-              <span className="text-gray-300">And I'm a </span>
-              <span className="text-cyan-400 font-semibold">
-                {currentText}
-                <span className="animate-pulse">|</span>
-              </span>
+          <div className="space-y-8 text-center lg:text-left">
+            <div className="space-y-4">
+              <p className="text-primary text-lg font-medium animate-fade-in">Hello, I'm</p>
+              <h1 className="text-4xl md:text-6xl font-bold animate-slide-up">
+                <span className="text-primary">Vandana Patil</span>
+              </h1>
+              <h2 className="text-xl md:text-2xl text-muted-foreground animate-slide-up animation-delay-200">
+                And I'm a <span className="text-primary">Web Developer</span>
+              </h2>
             </div>
-            <p className="text-gray-300 mb-8 max-w-2xl leading-relaxed">
+
+            <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-400">
               Final Year CSE Student and aspiring software developer, focused on 
-              hands-on projects and continuous learning to build innovative solutions 
-              through code.
+              hands-on projects and continuous learning to build innovative solutions through code.
             </p>
 
             {/* Social Links */}
-            <div className="flex gap-4 justify-center lg:justify-start mb-8">
-              <a href="#" className="w-10 h-10 bg-cyan-400/20 border border-cyan-400/30 rounded-md flex items-center justify-center text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300">
+            <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-600">
+              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-cyan-400/20 border border-cyan-400/30 rounded-md flex items-center justify-center text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300">
+              </Button>
+              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-cyan-400/20 border border-cyan-400/30 rounded-md flex items-center justify-center text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300">
+              </Button>
+              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
                 <Github className="h-5 w-5" />
-              </a>
+              </Button>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button className="bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-semibold px-8">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
+              <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full">
                 Hire Me
               </Button>
               <Button 
                 variant="outline" 
-                className="border-gray-400 text-gray-300 hover:bg-gray-300 hover:text-slate-900 px-8"
-                onClick={() => scrollToSection("contact")}
+                className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full"
+                onClick={scrollToNext}
               >
                 Contact Me
               </Button>
@@ -107,13 +137,15 @@ export default function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="flex justify-center mt-16">
-          <button
-            onClick={() => scrollToSection("about")}
-            className="text-cyan-400 hover:text-white transition-colors animate-bounce"
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={scrollToNext}
+            className="text-muted-foreground hover:text-primary"
           >
-            <ChevronDown className="h-8 w-8" />
-          </button>
+            <ChevronDown className="h-6 w-6" />
+          </Button>
         </div>
       </div>
     </section>

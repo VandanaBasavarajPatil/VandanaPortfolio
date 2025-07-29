@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Navbar from "@/components/navbar";
+import Hero from "@/components/hero";
 import About from "@/components/about";
 import Education from "@/components/education";
 import Skills from "@/components/skills";
@@ -26,6 +27,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
+      <Hero />
       <About />
       <Education />
       <Skills />

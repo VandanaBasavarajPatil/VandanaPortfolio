@@ -105,7 +105,7 @@ export default function Projects() {
           <h3 className="text-3xl font-bold text-center mb-12">Notable Projects</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {notableProjects.map((project, index) => (
-              <Card key={index} className="bg-card border-border overflow-hidden group hover:shadow-lg transition-shadow">
+              <Card key={index} className="bg-card border-border overflow-hidden card-hover group">
                 <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                   <div className="text-6xl opacity-50">📱</div>
                 </div>
