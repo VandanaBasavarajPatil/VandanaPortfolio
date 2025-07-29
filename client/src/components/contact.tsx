@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -52,81 +51,80 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get In <span className="text-cyan-400">Touch</span>
+    <section id="contact" className="py-20 px-6">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Get In <span className="text-primary">Touch</span>
           </h2>
-          <p className="text-gray-300 text-lg">
-            I'm always open to discussing new opportunities, collaborations, or just having a chat 
-            about technology. Feel free to reach out!
+          <p className="text-xl text-muted-foreground">
+            I'm always open to discussing new opportunities, collaborations, or just having a chat about technology. Feel free to reach out!
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Form */}
-          <Card className="bg-slate-800/50 border-slate-700">
+          <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-white">Send Me a Message</CardTitle>
+              <CardTitle className="text-xl">Send Me a Message</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name" className="text-gray-300">Name *</Label>
+                    <Label htmlFor="name" className="text-muted-foreground">Name *</Label>
                     <Input
                       id="name"
                       name="name"
+                      placeholder="Your full name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your full name"
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400"
                       required
+                      className="bg-background border-border"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="email" className="text-gray-300">Email *</Label>
+                    <Label htmlFor="email" className="text-muted-foreground">Email *</Label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
+                      placeholder="your.email@example.com"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="your.email@example.com"
-                      className="bg-slate-700 border-slate-600 text-white placeholder-gray-400"
                       required
+                      className="bg-background border-border"
                     />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="subject" className="text-gray-300">Subject</Label>
+                  <Label htmlFor="subject" className="text-muted-foreground">Subject</Label>
                   <Input
                     id="subject"
                     name="subject"
+                    placeholder="What's this about?"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="What's this about?"
-                    className="bg-slate-700 border-slate-600 text-white placeholder-gray-400"
                     required
+                    className="bg-background border-border"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="message" className="text-gray-300">Message *</Label>
+                  <Label htmlFor="message" className="text-muted-foreground">Message</Label>
                   <Textarea
                     id="message"
                     name="message"
-                    rows={5}
+                    rows={6}
+                    placeholder="Tell me more about your project or idea..."
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell me about your project, opportunity, or just say hello!"
-                    className="bg-slate-700 border-slate-600 text-white placeholder-gray-400"
                     required
+                    className="bg-background border-border resize-none"
                   />
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white"
+                  className="w-full bg-primary hover:bg-primary/90 text-white"
                   disabled={contactMutation.isPending}
                 >
                   <Send className="h-4 w-4 mr-2" />
@@ -137,82 +135,44 @@ export default function Contact() {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-8">
-            <Card className="bg-slate-800/50 border-slate-700">
+          <div>
+            <Card className="bg-card border-border">
               <CardHeader>
-                <CardTitle className="text-white">Contact Information</CardTitle>
+                <CardTitle className="text-xl">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-cyan-400/20 rounded-lg flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-cyan-400" />
+                <div className="flex items-center gap-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white">vandanabasavaraja@gmail.com</p>
+                    <p className="text-sm text-muted-foreground">Email</p>
+                    <p className="font-medium">vandanabasavaraja6@gmail.com</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-cyan-400/20 rounded-lg flex items-center justify-center">
-                    <Phone className="h-5 w-5 text-cyan-400" />
+                <div className="flex items-center gap-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Phone className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Phone</p>
-                    <p className="text-white">+91 8088492647</p>
+                    <p className="text-sm text-muted-foreground">Phone</p>
+                    <p className="font-medium">+91 8088492647</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-cyan-400/20 rounded-lg flex items-center justify-center">
-                    <MapPin className="h-5 w-5 text-cyan-400" />
+                <div className="flex items-center gap-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <MapPin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white">Kanakapura, Bengaluru South</p>
+                    <p className="text-sm text-muted-foreground">Location</p>
+                    <p className="font-medium">Bengaluru, Karnataka, India</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-slate-800/50 border-slate-700">
-              <CardHeader>
-                <CardTitle className="text-white">Connect With Me</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex gap-4">
-                  <a href="#" className="w-12 h-12 bg-slate-700 hover:bg-cyan-400 rounded-lg flex items-center justify-center text-cyan-400 hover:text-slate-900 transition-all duration-300">
-                    <Github className="h-5 w-5" />
-                  </a>
-                  <a href="#" className="w-12 h-12 bg-slate-700 hover:bg-cyan-400 rounded-lg flex items-center justify-center text-cyan-400 hover:text-slate-900 transition-all duration-300">
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  <a href="#" className="w-12 h-12 bg-slate-700 hover:bg-cyan-400 rounded-lg flex items-center justify-center text-cyan-400 hover:text-slate-900 transition-all duration-300">
-                    <Twitter className="h-5 w-5" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-slate-800/50 border-slate-700">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-2 text-green-400">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="font-semibold">Available for Opportunities</span>
-                </div>
-                <p className="text-gray-300 text-sm mt-2">
-                  I'm actively seeking internship and full-time opportunities for 2025. Open to 
-                  remote work and relocation.
-                </p>
               </CardContent>
             </Card>
           </div>
-        </div>
-
-        <div className="text-center mt-16 pt-8 border-t border-slate-700">
-          <p className="text-gray-400">
-            Final Year CSE Student at KSSEM | Bengaluru | © 2025 Vandana Patil
-          </p>
         </div>
       </div>
     </section>
