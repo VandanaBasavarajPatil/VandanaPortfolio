@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#203b55] via-[#2e647f] to-[#3d77b0]"></div>
         {/* Floating particles */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
@@ -46,11 +46,11 @@ export default function Hero() {
 
         {/* Dynamic gradient based on mouse position */}
         <div 
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-40"
           style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(59, 130, 246, 0.15), transparent 40%)`,
+            background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(18, 186, 222, 0.2), transparent 40%)`,
           }}
-        />
+        /></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -58,20 +58,23 @@ export default function Hero() {
           {/* Left side - Profile Image with VP */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative group">
-              {/* Outer glow ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-primary blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse"></div>
+              {/* Outer glow ring with #12bade */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#12bade] via-[#12bade] to-[#12bade] blur-lg opacity-60 group-hover:opacity-90 transition-opacity duration-500 animate-pulse"></div>
+              
+              {/* Additional inner glow */}
+              <div className="absolute inset-2 rounded-full bg-[#12bade] blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
 
               {/* Main profile circle */}
-              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-card via-muted to-card border-2 border-primary/30 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500">
+              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-[#2e647f] via-[#3d77b0] to-[#2e647f] border-2 border-[#12bade]/50 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#12bade]/20"></div>
                 {/* Background pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#12bade]/10 via-transparent to-[#12bade]/10"></div>
 
                 {/* Background particle field */}
                 <div className="absolute inset-0 rounded-full overflow-hidden">
                   {[...Array(25)].map((_, i) => (
                     <div
                       key={`bg-particle-${i}`}
-                      className="absolute w-1 h-1 bg-primary/20 rounded-full animate-float-random"
+                      className="absolute w-1 h-1 bg-[#12bade]/30 rounded-full animate-float-random"
                       style={{
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
@@ -87,7 +90,7 @@ export default function Hero() {
                   {[...Array(12)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-1.5 h-1.5 bg-primary/50 rounded-full animate-pulse-glow"
+                      className="absolute w-1.5 h-1.5 bg-[#12bade]/60 rounded-full animate-pulse-glow"
                       style={{
                         left: `${15 + Math.random() * 70}%`,
                         top: `${15 + Math.random() * 70}%`,
@@ -100,7 +103,7 @@ export default function Hero() {
 
                 {/* VP Text */}
                 <div className="relative z-10">
-                  <h1 className="text-6xl font-bold text-primary font-mono tracking-wider">VP</h1>
+                  <h1 className="text-6xl font-bold text-[#12bade] font-mono tracking-wider drop-shadow-lg">VP</h1>
                 </div>
               </div>
             </div>
