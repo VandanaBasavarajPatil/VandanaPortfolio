@@ -47,7 +47,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Profile Image */}
-          <div className="relative flex justify-center lg:justify-start lg:ml-8">
+          <div className="relative flex justify-center lg:justify-center lg:pl-12">
             <div className="relative group">
               {/* Main profile circle with glow effect */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
