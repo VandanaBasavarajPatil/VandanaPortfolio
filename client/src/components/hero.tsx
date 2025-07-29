@@ -47,14 +47,21 @@ export default function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Profile Image */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Glowing background */}
-              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#00bcd4] opacity-10 blur-xl animate-pulse-glow"></div>
-              <div className="relative w-80 h-80 rounded-full border-2 border-[#00bcd4] flex items-center justify-center overflow-hidden shadow-2xl bg-transparent">
-                <h1 className="text-6xl font-bold text-white font-mono">VP</h1>
-              </div>
-            </div>
+          <div className="relative flex justify-center lg:justify-start lg:ml-8">
+            <div className="relative group">
+              {/* Main profile circle with glow effect */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+                {/* Glowing background circle */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#12bade]/20 to-[#00bcd4]/20 animate-pulse-glow"></div>
+
+                {/* Main profile circle */}
+                <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#1a2847] to-[#0f1b2e] border-4 border-[#12bade]/30 flex items-center justify-center shadow-2xl overflow-hidden">
+                  {/* VP Text Logo */}
+                  <div className="text-6xl md:text-7xl font-bold text-[#12bade] select-none animate-fade-in animation-delay-400">
+                    VP
+                  </div>
+                </div>
+              </div></div>
           </div>
 
           {/* Right side - Content */}
