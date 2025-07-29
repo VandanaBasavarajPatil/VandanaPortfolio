@@ -66,17 +66,33 @@ export default function Hero() {
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
 
+                {/* Background particle field */}
+                <div className="absolute inset-0 rounded-full overflow-hidden">
+                  {[...Array(25)].map((_, i) => (
+                    <div
+                      key={`bg-particle-${i}`}
+                      className="absolute w-1 h-1 bg-primary/20 rounded-full animate-float-random"
+                      style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
+                        animationDelay: `${Math.random() * 4}s`,
+                        animationDuration: `${3 + Math.random() * 3}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+
                 {/* Floating elements inside circle */}
                 <div className="absolute inset-4 rounded-full">
-                  {[...Array(8)].map((_, i) => (
+                  {[...Array(12)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-1 h-1 bg-primary/40 rounded-full animate-bounce"
+                      className="absolute w-1.5 h-1.5 bg-primary/50 rounded-full animate-pulse-glow"
                       style={{
-                        left: `${20 + Math.random() * 60}%`,
-                        top: `${20 + Math.random() * 60}%`,
-                        animationDelay: `${Math.random() * 2}s`,
-                        animationDuration: `${2 + Math.random()}s`,
+                        left: `${15 + Math.random() * 70}%`,
+                        top: `${15 + Math.random() * 70}%`,
+                        animationDelay: `${Math.random() * 3}s`,
+                        animationDuration: `${2 + Math.random() * 2}s`,
                       }}
                     />
                   ))}
