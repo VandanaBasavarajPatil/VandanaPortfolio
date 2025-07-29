@@ -114,7 +114,7 @@ export default function Hero() {
                 <span className="text-primary">Vandana Patil</span>
               </h1>
               <h2 className="text-xl md:text-2xl text-muted-foreground animate-slide-up animation-delay-200">
-                And I'm a <span className="text-primary">Web Developer</span>
+                And I'm a <span className="text-primary">AI/ML Enthusiast</span>
               </h2>
             </div>
 
