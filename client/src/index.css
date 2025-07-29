@@ -63,8 +63,13 @@
     scroll-behavior: smooth;
   }
 
-  /* Hero section with darker navy background like reference */
-  #home {
+  /* Apply gradient background to all sections like reference */
+  #home, #about, #education, #skills, #projects, #experience, #contact {
+    background: linear-gradient(135deg, #0f1b2e 0%, #1a2847 50%, #0f1b2e 100%) !important;
+  }
+  
+  /* Ensure sections blend seamlessly */
+  section {
     background: linear-gradient(135deg, #0f1b2e 0%, #1a2847 50%, #0f1b2e 100%) !important;
   }
 }
