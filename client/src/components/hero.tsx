@@ -44,23 +44,8 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background with floating particles */}
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
-        {/* Floating particles */}
-        <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-              }}
-            />
-          ))}
-        </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -68,7 +53,9 @@ export default function Hero() {
           {/* Left side - Profile Image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-gray-700 flex items-center justify-center overflow-hidden shadow-2xl">
+              {/* Glowing background */}
+              <div className="absolute inset-0 w-80 h-80 rounded-full bg-[#12bade] opacity-30 blur-xl animate-pulse-glow"></div>
+              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-[#12bade] flex items-center justify-center overflow-hidden shadow-2xl">
                 <h1 className="text-6xl font-bold text-white font-mono">VP</h1>
               </div>
             </div>

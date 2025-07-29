@@ -1,50 +1,51 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
+  --background: #203b55;
   --foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 4%, 16%);
+  --muted: #2e647f;
   --muted-foreground: hsl(240, 5%, 64.9%);
-  --popover: hsl(240, 10%, 3.9%);
+  --popover: #203b55;
   --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
+  --card: #2e647f;
   --card-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 6%, 10%);
-  --input: hsl(240, 6%, 10%);
-  --primary: hsl(0, 0%, 98%);
-  --primary-foreground: hsl(240, 5.9%, 10%);
-  --secondary: hsl(240, 4%, 16%);
+  --border: #3d77b0;
+  --input: #2e647f;
+  --primary: #12bade;
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: #2e647f;
   --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(240, 4%, 16%);
+  --accent: #3d77b0;
   --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(240, 5%, 64.9%);
+  --ring: #12bade;
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: #0a0a0a;
+  --background: #203b55;
   --foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 4%, 16%);
+  --muted: #2e647f;
   --muted-foreground: hsl(240, 5%, 64.9%);
-  --popover: hsl(240, 10%, 3.9%);
+  --popover: #203b55;
   --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
+  --card: #2e647f;
   --card-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 6%, 10%);
-  --input: hsl(240, 6%, 10%);
-  --primary: hsl(0, 0%, 98%);
-  --primary-foreground: hsl(240, 5.9%, 10%);
-  --secondary: hsl(240, 4%, 16%);
+  --border: #3d77b0;
+  --input: #2e647f;
+  --primary: #12bade;
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: #2e647f;
   --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(240, 4%, 16%);
+  --accent: #3d77b0;
   --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 5%, 64.9%);
+  --ring: #12bade;
   --radius: 0.5rem;
 }
 
@@ -60,6 +61,11 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Hero section maintains gradient background */
+  #home {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%) !important;
   }
 }
 
@@ -185,7 +191,7 @@
 
 .card-hover:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(18, 186, 222, 0.15);
 }
 
 /* Global hover effects for all cards */
@@ -195,7 +201,7 @@
 
 .card:hover, [class*="card"]:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(18, 186, 222, 0.2);
 }
 
 /* Link hover effects */
@@ -205,7 +211,7 @@ a, button[class*="button"], .hover-link {
 
 a:hover, button[class*="button"]:hover, .hover-link:hover {
   transform: translateY(-1px);
-  color: #0ea5e9;
+  color: #12bade;
 }
 
 /* Badge hover effects */
@@ -215,5 +221,5 @@ a:hover, button[class*="button"]:hover, .hover-link:hover {
 
 .badge:hover, [class*="badge"]:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(18, 186, 222, 0.15);
 }
