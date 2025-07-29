@@ -3,19 +3,37 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Github, Linkedin, Twitter } from "lucide-react";
 
 export default function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const phrases = ["Web Developer", "AI/ML Enthusiast", "Tech Explorer"];
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      });
+    const handleTyping = () => {
+      const i = loopNum % phrases.length;
+      const fullText = phrases[i];
+
+      setText(
+        isDeleting
+          ? fullText.substring(0, text.length - 1)
+          : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 30 : 150);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 500);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed, phrases]);
 
   const scrollToNext = () => {
     const aboutSection = document.getElementById('about');
@@ -26,14 +44,14 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#203b55] via-[#2e647f] to-[#3d77b0]"></div>
+      {/* Background with floating particles */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         {/* Floating particles */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(50)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-primary/20 rounded-full animate-float"
+              className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -43,68 +61,15 @@ export default function Hero() {
             />
           ))}
         </div>
-
-        {/* Dynamic gradient based on mouse position */}
-        <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(18, 186, 222, 0.2), transparent 40%)`,
-          }}
-        /></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Profile Image with VP */}
+          {/* Left side - Profile Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative group">
-              {/* Outer glow ring with #12bade */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#12bade] via-[#12bade] to-[#12bade] blur-lg opacity-60 group-hover:opacity-90 transition-opacity duration-500 animate-pulse"></div>
-              
-              {/* Additional inner glow */}
-              <div className="absolute inset-2 rounded-full bg-[#12bade] blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-
-              {/* Main profile circle */}
-              <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-[#2e647f] via-[#3d77b0] to-[#2e647f] border-2 border-[#12bade]/50 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#12bade]/20"></div>
-                {/* Background pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#12bade]/10 via-transparent to-[#12bade]/10"></div>
-
-                {/* Background particle field */}
-                <div className="absolute inset-0 rounded-full overflow-hidden">
-                  {[...Array(25)].map((_, i) => (
-                    <div
-                      key={`bg-particle-${i}`}
-                      className="absolute w-1 h-1 bg-[#12bade]/30 rounded-full animate-float-random"
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 4}s`,
-                        animationDuration: `${3 + Math.random() * 3}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Floating elements inside circle */}
-                <div className="absolute inset-4 rounded-full">
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1.5 h-1.5 bg-[#12bade]/60 rounded-full animate-pulse-glow"
-                      style={{
-                        left: `${15 + Math.random() * 70}%`,
-                        top: `${15 + Math.random() * 70}%`,
-                        animationDelay: `${Math.random() * 3}s`,
-                        animationDuration: `${2 + Math.random() * 2}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* VP Text */}
-                <div className="relative z-10">
-                  <h1 className="text-6xl font-bold text-[#12bade] font-mono tracking-wider drop-shadow-lg">VP</h1>
-                </div>
+            <div className="relative">
+              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-gray-700 flex items-center justify-center overflow-hidden shadow-2xl">
+                <h1 className="text-6xl font-bold text-white font-mono">VP</h1>
               </div>
             </div>
           </div>
@@ -112,44 +77,48 @@ export default function Hero() {
           {/* Right side - Content */}
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-primary text-lg font-medium animate-fade-in">Hello, I'm</p>
-              <h1 className="text-4xl md:text-6xl font-bold animate-slide-up">
-                <span className="text-primary">Vandana Patil</span>
+              <p className="text-blue-400 text-lg font-medium animate-fade-in">Hello, I'm</p>
+              <h1 className="text-4xl md:text-6xl font-bold text-white animate-slide-up">
+                Vandana Patil
               </h1>
-              <h2 className="text-xl md:text-2xl text-muted-foreground animate-slide-up animation-delay-200">
-                And I'm a <span className="text-primary">AI/ML Enthusiast</span>
+              <h2 className="text-xl md:text-2xl text-gray-300 animate-slide-up animation-delay-200">
+                Final Year CSE Student | Aspiring Software Developer
               </h2>
+              <div className="text-xl md:text-2xl text-blue-400 animate-slide-up animation-delay-400">
+                <span>{text}</span>
+                <span className="animate-pulse">|</span>
+              </div>
             </div>
 
-            <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-400">
-              Final Year CSE Student and aspiring software developer, focused on 
-              hands-on projects and continuous learning to build innovative solutions through code.
+            <p className="text-lg text-gray-400 max-w-lg animate-fade-in animation-delay-600">
+              Passionate about creating innovative solutions through code and 
+              exploring the endless possibilities of technology.
             </p>
 
             {/* Social Links */}
-            <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-600">
-              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
+            <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
+              <Button variant="outline" size="icon" className="hover:bg-blue-600 hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="hover:bg-blue-600 hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="hover:bg-primary hover:text-white transition-colors">
+              <Button variant="outline" size="icon" className="hover:bg-blue-600 hover:text-white transition-colors">
                 <Github className="h-5 w-5" />
               </Button>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full">
-                Hire Me
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full">
+                Download CV
               </Button>
               <Button 
                 variant="outline" 
-                className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full"
+                className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full"
                 onClick={scrollToNext}
               >
-                Contact Me
+                About Me
               </Button>
             </div>
           </div>
@@ -161,7 +130,7 @@ export default function Hero() {
             variant="ghost"
             size="icon"
             onClick={scrollToNext}
-            className="text-muted-foreground hover:text-primary"
+            className="text-gray-400 hover:text-white"
           >
             <ChevronDown className="h-6 w-6" />
           </Button>
