@@ -62,7 +62,7 @@ export default function Skills() {
         {/* Skill Categories */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="bg-card border-border">
+            <Card key={index} className="bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
               <CardHeader>
                 <CardTitle className={`flex items-center gap-3 ${category.color}`}>
                   <span className="text-2xl">{category.icon}</span>
@@ -87,7 +87,7 @@ export default function Skills() {
           <h3 className="text-3xl font-bold text-center mb-12">Technical Proficiency</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {proficiencyLevels.map((level, index) => (
-              <Card key={index} className="bg-card border-border">
+              <Card key={index} className="bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                 <CardHeader>
                   <CardTitle className={`flex items-center gap-3 ${level.color}`}>
                     <span className="text-2xl">{level.icon}</span>

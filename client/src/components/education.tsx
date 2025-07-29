@@ -16,7 +16,7 @@ export default function Education() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Secondary Education */}
-          <Card className="bg-card border-border">
+          <Card className="bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
             <CardContent className="p-8">
               <div className="flex items-start gap-4 mb-6">
                 <div className="bg-primary/10 p-3 rounded-full">
@@ -45,7 +45,7 @@ export default function Education() {
           </Card>
 
           {/* Bachelor's Degree */}
-          <Card className="bg-card border-border">
+          <Card className="bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
             <CardContent className="p-8">
               <div className="flex items-start gap-4 mb-6">
                 <div className="bg-primary/10 p-3 rounded-full">

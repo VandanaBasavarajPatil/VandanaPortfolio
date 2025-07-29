@@ -61,7 +61,7 @@ export default function Projects() {
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-center mb-12">Future Projects</h3>
           {futureProjects.map((project, index) => (
-            <Card key={index} className="bg-card border-border mb-8">
+            <Card key={index} className="bg-card border-border mb-8 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
               <CardContent className="p-8">
                 <div className="flex justify-between items-start mb-4">
                   <h4 className="text-2xl font-bold">{project.title}</h4>
@@ -105,7 +105,7 @@ export default function Projects() {
           <h3 className="text-3xl font-bold text-center mb-12">Notable Projects</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {notableProjects.map((project, index) => (
-              <Card key={index} className="bg-card border-border overflow-hidden card-hover group">
+              <Card key={index} className="bg-card border-border overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
                 <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                   <div className="text-6xl opacity-50">📱</div>
                 </div>
@@ -128,11 +128,11 @@ export default function Projects() {
                   </div>
 
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex-1">
+                    <Button size="sm" variant="outline" className="flex-1 hover:bg-primary hover:text-white hover:scale-105 transition-all duration-200">
                       <Github className="h-4 w-4 mr-1" />
                       Code
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1">
+                    <Button size="sm" variant="outline" className="flex-1 hover:bg-primary hover:text-white hover:scale-105 transition-all duration-200">
                       <ExternalLink className="h-4 w-4 mr-1" />
                       Demo
                     </Button>

@@ -72,7 +72,7 @@ export default function Experience() {
                 <div className="absolute left-6 w-4 h-4 bg-primary rounded-full hidden md:block"></div>
                 
                 <div className="md:ml-20">
-                  <Card className="bg-card border-border">
+                  <Card className="bg-card border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                     <CardContent className="p-8">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div className="flex items-center gap-3 mb-4 md:mb-0">

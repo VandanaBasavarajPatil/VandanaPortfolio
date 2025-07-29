@@ -43,7 +43,7 @@ export default function Hero() {
             />
           ))}
         </div>
-        
+
         {/* Dynamic gradient based on mouse position */}
         <div 
           className="absolute inset-0 opacity-30"
@@ -60,12 +60,12 @@ export default function Hero() {
             <div className="relative group">
               {/* Outer glow ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-primary blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse"></div>
-              
+
               {/* Main profile circle */}
               <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-card via-muted to-card border-2 border-primary/30 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500">
                 {/* Background pattern */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
-                
+
                 {/* Floating elements inside circle */}
                 <div className="absolute inset-4 rounded-full">
                   {[...Array(8)].map((_, i) => (
@@ -81,7 +81,7 @@ export default function Hero() {
                     />
                   ))}
                 </div>
-                
+
                 {/* VP Text */}
                 <div className="relative z-10">
                   <h1 className="text-6xl font-bold text-primary font-mono tracking-wider">VP</h1>

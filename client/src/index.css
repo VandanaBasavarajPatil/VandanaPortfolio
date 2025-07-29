@@ -149,6 +149,37 @@
 }
 
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Global hover effects for all cards */
+.card, [class*="card"] {
+  transition: all 0.3s ease;
+}
+
+.card:hover, [class*="card"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+/* Link hover effects */
+a, button[class*="button"], .hover-link {
+  transition: all 0.2s ease;
+}
+
+a:hover, button[class*="button"]:hover, .hover-link:hover {
+  transform: translateY(-1px);
+  color: #0ea5e9;
+}
+
+/* Badge hover effects */
+.badge, [class*="badge"] {
+  transition: all 0.2s ease;
+}
+
+.badge:hover, [class*="badge"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

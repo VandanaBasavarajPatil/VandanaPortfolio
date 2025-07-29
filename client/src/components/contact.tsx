@@ -64,7 +64,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Form */}
-          <Card className="bg-card border-border">
+          <Card className="bg-card border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-xl">Send Me a Message</CardTitle>
             </CardHeader>
@@ -80,7 +80,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-background border-border"
+                      className="bg-background border-border hover:border-primary transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -93,7 +93,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-background border-border"
+                      className="bg-background border-border hover:border-primary transition-colors duration-200"
                     />
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="bg-background border-border"
+                    className="bg-background border-border hover:border-primary transition-colors duration-200"
                   />
                 </div>
                 <div>
@@ -119,12 +119,12 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="bg-background border-border resize-none"
+                    className="bg-background border-border resize-none hover:border-primary transition-colors duration-200"
                   />
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                  className="w-full bg-primary hover:bg-primary/90 text-white hover:scale-105 transition-all duration-200"
                   disabled={contactMutation.isPending}
                 >
                   <Send className="h-4 w-4 mr-2" />
@@ -136,38 +136,38 @@ export default function Contact() {
 
           {/* Contact Information */}
           <div>
-            <Card className="bg-card border-border">
+            <Card className="bg-card border-border hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-xl">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
+                <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-200 cursor-pointer">
+                  <div className="bg-primary/10 p-3 rounded-full hover:bg-primary/20 transition-colors duration-200">
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-medium">vandanabasavaraja6@gmail.com</p>
+                    <p className="font-medium hover:text-primary transition-colors duration-200">vandanabasavaraja6@gmail.com</p>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
+
+                <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-200 cursor-pointer">
+                  <div className="bg-primary/10 p-3 rounded-full hover:bg-primary/20 transition-colors duration-200">
                     <Phone className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Phone</p>
-                    <p className="font-medium">+91 8088492647</p>
+                    <p className="font-medium hover:text-primary transition-colors duration-200">+91 8088492647</p>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
+
+                <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-200 cursor-pointer">
+                  <div className="bg-primary/10 p-3 rounded-full hover:bg-primary/20 transition-colors duration-200">
                     <MapPin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="font-medium">Bengaluru, Karnataka, India</p>
+                    <p className="font-medium hover:text-primary transition-colors duration-200">Bengaluru, Karnataka, India</p>
                   </div>
                 </div>
               </CardContent>

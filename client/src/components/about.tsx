@@ -37,7 +37,7 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-card border-border text-center p-6">
+            <Card className="bg-card border-border text-center p-6 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
               <CardContent className="pt-6">
                 <div className="flex justify-center mb-4">
                   <GraduationCap className="h-12 w-12 text-primary" />
@@ -49,7 +49,7 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="bg-card border-border text-center p-6">
+            <Card className="bg-card border-border text-center p-6 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
               <CardContent className="pt-6">
                 <div className="flex justify-center mb-4">
                   <Code className="h-12 w-12 text-green-500" />
