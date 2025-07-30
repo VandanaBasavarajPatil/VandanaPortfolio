@@ -21,7 +21,8 @@ export default function Projects() {
       year: "2024",
       techStack: ["Python", "Flask", "HTML", "CSS", "GitHub Actions", "Render"],
       bgImage: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=200&fit=crop",
-      icon: "🎵"
+      icon: "🎵",
+      githubLink: "https://github.com/VandanaBasavarajPatil/websitespotify"
     },
     {
       title: "Weather App",
@@ -29,7 +30,8 @@ export default function Projects() {
       year: "2024",
       techStack: ["Java", "Swing", "OpenWeather API"],
       bgImage: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=200&fit=crop",
-      icon: "🌤️"
+      icon: "🌤️",
+      githubLink: "https://github.com/VandanaBasavarajPatil/WeatherApp-Java"
     },
     {
       title: "Library Management System",
@@ -37,7 +39,8 @@ export default function Projects() {
       year: "2024",
       techStack: ["Java", "JDBC", "SQLite"],
       bgImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop",
-      icon: "📚"
+      icon: "📚",
+      githubLink: "https://github.com/VandanaBasavarajPatil/LibraryManagementSystem-JAVA"
     }
   ];
 
@@ -148,9 +151,11 @@ export default function Projects() {
                   </div>
 
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="w-full text-xs hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
-                      <Github className="h-3 w-3 mr-1" />
-                      View Code
+                    <Button size="sm" variant="outline" className="w-full text-xs hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50" asChild>
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-3 w-3 mr-1" />
+                        View Code
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
