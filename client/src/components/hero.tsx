@@ -72,8 +72,7 @@ export default function Hero() {
                 Vandana Patil
               </h1>
               <div className="text-xl md:text-2xl text-gray-300 animate-slide-up animation-delay-200">
-                And I'm a <span className="text-[#00bcd4] font-semibold">{text}</span>
-                <span className="animate-pulse text-[#00bcd4]">|</span>
+                <span className="text-[#00bcd4] font-semibold">Aspiring Software Developer</span>
               </div>
             </div>
 
