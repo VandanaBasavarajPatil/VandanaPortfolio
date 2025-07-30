@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Github, Linkedin, Twitter } from "lucide-react";
+import { ChevronDown, Github, Linkedin } from "lucide-react";
 import profileImage from "@assets/profile _1753894605610.jpg";
 
 export default function Hero() {
@@ -86,11 +86,6 @@ export default function Hero() {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors" asChild>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <Twitter className="h-5 w-5" />
-                </a>
-              </Button>
               <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors" asChild>
                 <a href="https://www.linkedin.com/in/vandana-patil-78ba4032a/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-5 w-5" />
