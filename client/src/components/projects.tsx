@@ -161,9 +161,11 @@ export default function Projects() {
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">Want to see more of my work?</p>
-          <Button className="bg-primary hover:bg-primary/90">
-            <Github className="h-4 w-4 mr-2" />
-            View All Projects on GitHub
+          <Button className="bg-primary hover:bg-primary/90" asChild>
+            <a href="https://github.com/VandanaBasavarajPatil" target="_blank" rel="noopener noreferrer">
+              <Github className="h-4 w-4 mr-2" />
+              View All Projects on GitHub
+            </a>
           </Button>
         </div>
       </div>
