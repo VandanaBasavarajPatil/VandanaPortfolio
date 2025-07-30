@@ -1,11 +1,13 @@
 
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Award, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Certifications() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const certifications = [
     {
       title: "Microsoft Power Apps Certification",
@@ -45,6 +47,18 @@ export default function Certifications() {
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % certifications.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + certifications.length) % certifications.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <section id="certifications" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
@@ -57,67 +71,119 @@ export default function Certifications() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {certifications.map((cert, index) => (
-                <CarouselItem key={index}>
-                  <Card className="bg-card border-border overflow-hidden">
-                    <div className="md:flex h-full">
-                      {/* Certificate Image */}
-                      <div className="md:w-2/5 relative">
-                        <img 
-                          src={cert.image} 
-                          alt={cert.title}
-                          className="w-full h-64 md:h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
-                        <div className="absolute top-4 left-4">
-                          <Badge className="bg-blue-600 text-white">{cert.year}</Badge>
-                        </div>
+        <div className="relative max-w-5xl mx-auto">
+          {/* Main Certificate Card */}
+          <div className="relative overflow-hidden rounded-lg">
+            <Card className="bg-card border-border overflow-hidden hover:shadow-2xl transition-all duration-500">
+              <div className="md:flex h-full">
+                {/* Certificate Image */}
+                <div className="md:w-2/5 relative">
+                  <img 
+                    src={certifications[currentIndex].image} 
+                    alt={certifications[currentIndex].title}
+                    className="w-full h-64 md:h-full object-cover transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-blue-600 text-white">{certifications[currentIndex].year}</Badge>
+                  </div>
+                </div>
+                
+                {/* Certificate Details */}
+                <div className="md:w-3/5 p-8 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Award className="h-6 w-6 text-primary" />
+                    <h3 className="text-2xl font-bold">{certifications[currentIndex].title}</h3>
+                  </div>
+                  
+                  <p className="text-primary font-semibold mb-2">Issued by: {certifications[currentIndex].issuer}</p>
+                  <p className="text-muted-foreground text-sm mb-4">Certificate ID: {certifications[currentIndex].id}</p>
+                  
+                  <p className="text-muted-foreground mb-6">
+                    {certifications[currentIndex].description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {certifications[currentIndex].skills.map((skill, skillIndex) => (
+                      <div key={skillIndex} className="relative">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-600/30 blur-sm"></div>
+                        <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2 hover:scale-110 transition-transform duration-200">
+                          {skill}
+                        </Badge>
                       </div>
-                      
-                      {/* Certificate Details */}
-                      <div className="md:w-3/5 p-8 flex flex-col justify-center">
-                        <div className="flex items-center gap-3 mb-4">
-                          <Award className="h-6 w-6 text-primary" />
-                          <h3 className="text-2xl font-bold">{cert.title}</h3>
-                        </div>
-                        
-                        <p className="text-primary font-semibold mb-2">Issued by: {cert.issuer}</p>
-                        <p className="text-muted-foreground text-sm mb-4">Certificate ID: {cert.id}</p>
-                        
-                        <p className="text-muted-foreground mb-6">
-                          {cert.description}
-                        </p>
-                        
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {cert.skills.map((skill, skillIndex) => (
-                            <Badge key={skillIndex} variant="secondary" className="text-xs">
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                        
-                        <Button variant="outline" size="sm" className="w-fit">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Verify Certificate
-                        </Button>
-                      </div>
-                    </div>
-                  </Card>
-                </CarouselItem>
+                    ))}
+                  </div>
+                  
+                  <Button variant="outline" size="sm" className="w-fit hover:bg-primary hover:text-white transition-all duration-300">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Verify Certificate
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-between mt-8">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevSlide}
+              className="hover:bg-primary hover:text-white transition-all duration-300"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+
+            {/* Slide Indicators */}
+            <div className="flex gap-3">
+              {certifications.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? 'bg-primary scale-125' 
+                      : 'bg-muted hover:bg-primary/50'
+                  }`}
+                />
               ))}
-            </CarouselContent>
-            
-            <CarouselPrevious className="left-4" />
-            <CarouselNext className="right-4" />
-          </Carousel>
-          
-          {/* Indicators */}
-          <div className="flex justify-center mt-6 gap-2">
-            {certifications.map((_, index) => (
-              <div key={index} className="w-3 h-3 rounded-full bg-muted hover:bg-primary transition-colors cursor-pointer"></div>
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextSlide}
+              className="hover:bg-primary hover:text-white transition-all duration-300"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
+
+          {/* Certificate Thumbnails */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            {certifications.map((cert, index) => (
+              <Card
+                key={index}
+                className={`cursor-pointer transition-all duration-300 overflow-hidden ${
+                  index === currentIndex 
+                    ? 'ring-2 ring-primary shadow-lg scale-105' 
+                    : 'hover:shadow-md hover:scale-102'
+                }`}
+                onClick={() => goToSlide(index)}
+              >
+                <div className="relative">
+                  <img 
+                    src={cert.image} 
+                    alt={cert.title}
+                    className="w-full h-24 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-2 left-2 right-2">
+                    <h4 className="text-white text-xs font-semibold truncate">{cert.title}</h4>
+                    <p className="text-white/80 text-xs">{cert.issuer}</p>
+                  </div>
+                </div>
+              </Card>
             ))}
           </div>
         </div>
