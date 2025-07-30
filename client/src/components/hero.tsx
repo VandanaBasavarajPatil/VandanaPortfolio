@@ -86,14 +86,20 @@ export default function Hero() {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start animate-fade-in animation-delay-800">
-              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors">
-                <Twitter className="h-5 w-5" />
+              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors" asChild>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <Twitter className="h-5 w-5" />
+                </a>
               </Button>
-              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5" />
+              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors" asChild>
+                <a href="https://www.linkedin.com/in/vandana-patil-78ba4032a/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-5 w-5" />
+                </a>
               </Button>
-              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors">
-                <Github className="h-5 w-5" />
+              <Button variant="outline" size="icon" className="rounded-md border-[#00bcd4] text-[#00bcd4] hover:bg-[#00bcd4] hover:text-white transition-colors" asChild>
+                <a href="https://github.com/VandanaBasavarajPatil" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-5 w-5" />
+                </a>
               </Button>
             </div>
 
