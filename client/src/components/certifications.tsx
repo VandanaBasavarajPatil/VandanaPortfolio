@@ -28,52 +28,6 @@ export default function Certifications() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certifications.map((cert, index) => (
-            <Card key={index} className="bg-card border-border hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                <Award className="h-16 w-16 text-primary" />
-              </div>
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-lg font-bold mb-2">{cert.title}</h3>
-                  <p className="text-primary font-semibold text-sm">{cert.issuer}</p>
-                  <p className="text-muted-foreground text-xs mb-2">ID: {cert.id}</p>
-                  <Badge className="bg-blue-600 text-white text-xs">
-                    <Calendar className="h-3 w-3 mr-1" />
-                    {cert.year}
-                  </Badge>
-                </div>
-                
-                <p className="text-muted-foreground text-sm mb-4">{cert.description}</p>
-                
-                <div className="mb-4">
-                  <h4 className="font-semibold text-sm mb-2">Skills Covered:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="relative">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-primary/30 blur-sm"></div>
-                        <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2 hover:scale-110 transition-transform duration-200">
-                          {skill}
-                        </Badge>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <Button size="sm" variant="outline" className="w-full">
-                  <ExternalLink className="h-3 w-3 mr-2" />
-                  View Certificate
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
         <div className="max-w-4xl mx-auto">
           {/* Certification Carousel */}
           <div className="relative">
