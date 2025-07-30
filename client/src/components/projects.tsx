@@ -36,7 +36,7 @@ export default function Projects() {
       description: "A complete student-library record management system using Java and a MySQL database.",
       year: "2024",
       techStack: ["Java", "JDBC", "SQLite"],
-      bgImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop",
+      bgImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop",
       icon: "📚"
     }
   ];
@@ -99,47 +99,52 @@ export default function Projects() {
         {/* Notable Projects */}
         <div>
           <h3 className="text-3xl font-bold text-center mb-12">Notable Projects</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {notableProjects.map((project, index) => (
-              <Card key={index} className="bg-card border-border overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-500 cursor-pointer group relative">
+              <Card key={index} className="bg-card border-border overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-500 cursor-pointer group relative max-w-sm mx-auto">
                 <div 
-                  className="h-48 relative bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                  className="h-36 relative bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-110"
                   style={{ backgroundImage: `url(${project.bgImage})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60 group-hover:from-black/20 group-hover:to-black/40 transition-all duration-500"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl opacity-90 group-hover:scale-125 transition-transform duration-500 drop-shadow-lg">
+                    <div className="text-4xl opacity-90 group-hover:scale-125 transition-transform duration-500 drop-shadow-lg">
                       {project.icon}
                     </div>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-blue-600/90 text-white backdrop-blur-sm group-hover:bg-blue-500 transition-colors duration-300">
+                  <div className="absolute top-3 right-3">
+                    <Badge className="bg-blue-600/90 text-white backdrop-blur-sm group-hover:bg-blue-500 transition-colors duration-300 text-xs">
                       <Calendar className="h-3 w-3 mr-1" />
                       {project.year}
                     </Badge>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h4 className="text-xl font-bold text-white drop-shadow-lg">{project.title}</h4>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <h4 className="text-lg font-bold text-white drop-shadow-lg">{project.title}</h4>
                   </div>
                 </div>
-                <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-card group-hover:to-primary/5 transition-all duration-300">
-                  <p className="text-muted-foreground text-sm mb-4 group-hover:text-foreground/80 transition-colors duration-300">{project.description}</p>
+                <CardContent className="p-4 group-hover:bg-gradient-to-br group-hover:from-card group-hover:to-primary/5 transition-all duration-300">
+                  <p className="text-muted-foreground text-xs mb-3 group-hover:text-foreground/80 transition-colors duration-300 line-clamp-2">{project.description}</p>
                   
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.techStack.map((tech, techIndex) => (
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {project.techStack.slice(0, 3).map((tech, techIndex) => (
                       <Badge key={techIndex} variant="secondary" className="text-xs hover:scale-110 transition-transform duration-200 group-hover:bg-primary/10">
                         {tech}
                       </Badge>
                     ))}
+                    {project.techStack.length > 3 && (
+                      <Badge variant="secondary" className="text-xs">
+                        +{project.techStack.length - 3}
+                      </Badge>
+                    )}
                   </div>
 
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex-1 hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
-                      <Github className="h-4 w-4 mr-1" />
+                    <Button size="sm" variant="outline" className="flex-1 text-xs hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
+                      <Github className="h-3 w-3 mr-1" />
                       Code
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1 hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
-                      <ExternalLink className="h-4 w-4 mr-1" />
+                    <Button size="sm" variant="outline" className="flex-1 text-xs hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
+                      <ExternalLink className="h-3 w-3 mr-1" />
                       Demo
                     </Button>
                   </div>
