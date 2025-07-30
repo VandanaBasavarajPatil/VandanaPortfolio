@@ -98,11 +98,18 @@ export default function Skills() {
                   <p className="text-sm text-muted-foreground mb-4">
                     {level.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {level.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="outline" className="text-xs">
-                        {skill}
-                      </Badge>
+                      <div key={skillIndex} className="relative">
+                        <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${
+                          level.color === 'text-blue-500' ? 'from-blue-500/20 to-blue-600/30' :
+                          level.color === 'text-gray-400' ? 'from-gray-400/20 to-gray-500/30' :
+                          'from-yellow-400/20 to-yellow-500/30'
+                        } blur-sm`}></div>
+                        <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2 hover:scale-110 transition-transform duration-200">
+                          {skill}
+                        </Badge>
+                      </div>
                     ))}
                   </div>
                 </CardContent>

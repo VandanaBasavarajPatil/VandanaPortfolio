@@ -139,13 +139,9 @@ export default function Projects() {
                   </div>
 
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex-1 text-xs hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
+                    <Button size="sm" variant="outline" className="w-full text-xs hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
                       <Github className="h-3 w-3 mr-1" />
-                      Code
-                    </Button>
-                    <Button size="sm" variant="outline" className="flex-1 text-xs hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:border-primary/50">
-                      <ExternalLink className="h-3 w-3 mr-1" />
-                      Demo
+                      View Code
                     </Button>
                   </div>
                 </CardContent>
