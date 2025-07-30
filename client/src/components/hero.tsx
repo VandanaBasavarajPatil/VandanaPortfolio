@@ -55,11 +55,13 @@ export default function Hero() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#12bade]/20 to-[#00bcd4]/20 animate-pulse-glow"></div>
 
                 {/* Main profile circle */}
-                <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#1a2847] to-[#0f1b2e] border-4 border-[#12bade]/30 flex items-center justify-center shadow-2xl overflow-hidden">
-                  {/* VP Text Logo */}
-                  <div className="text-6xl md:text-7xl font-bold text-[#12bade] select-none animate-fade-in animation-delay-400">
-                    VP
-                  </div>
+                <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#1a2847] to-[#0f1b2e] border-4 border-[#12bade]/30 shadow-2xl overflow-hidden">
+                  {/* Profile Image */}
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Vandana Patil" 
+                    className="w-full h-full object-cover rounded-full animate-fade-in animation-delay-400"
+                  />
                 </div>
               </div></div>
           </div>
