@@ -112,11 +112,18 @@ export default function Experience() {
                         </ul>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-3">
                         {exp.techStack.map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="secondary" className="text-xs">
-                            {tech}
-                          </Badge>
+                          <div key={techIndex} className="relative">
+                            <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${
+                              exp.color === 'text-blue-500' ? 'from-blue-500/20 to-blue-600/30' :
+                              exp.color === 'text-purple-500' ? 'from-purple-500/20 to-purple-600/30' :
+                              'from-green-500/20 to-green-600/30'
+                            } blur-sm`}></div>
+                            <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2 hover:scale-110 transition-transform duration-200">
+                              {tech}
+                            </Badge>
+                          </div>
                         ))}
                       </div>
                     </CardContent>

@@ -70,11 +70,18 @@ export default function Skills() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <Badge key={skillIndex} variant="secondary" className="text-xs">
-                      {skill}
-                    </Badge>
+                    <div key={skillIndex} className="relative">
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${
+                        category.color === 'text-blue-500' ? 'from-blue-500/20 to-blue-600/30' :
+                        category.color === 'text-green-500' ? 'from-green-500/20 to-green-600/30' :
+                        'from-purple-500/20 to-purple-600/30'
+                      } blur-sm`}></div>
+                      <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2 hover:scale-110 transition-transform duration-200">
+                        {skill}
+                      </Badge>
+                    </div>
                   ))}
                 </div>
               </CardContent>

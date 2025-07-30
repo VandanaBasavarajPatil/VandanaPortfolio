@@ -67,11 +67,14 @@ export default function Projects() {
                 
                 <div className="mb-6">
                   <h5 className="font-semibold mb-3">Tech Stack:</h5>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-3 mb-4">
                     {project.techStack.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
+                      <div key={techIndex} className="relative">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 to-yellow-500/30 blur-sm"></div>
+                        <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2 hover:scale-110 transition-transform duration-200">
+                          {tech}
+                        </Badge>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -125,16 +128,22 @@ export default function Projects() {
                 <CardContent className="p-4 group-hover:bg-gradient-to-br group-hover:from-card group-hover:to-primary/5 transition-all duration-300">
                   <p className="text-muted-foreground text-xs mb-3 group-hover:text-foreground/80 transition-colors duration-300 line-clamp-2">{project.description}</p>
                   
-                  <div className="flex flex-wrap gap-1 mb-3">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {project.techStack.slice(0, 3).map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary" className="text-xs hover:scale-110 transition-transform duration-200 group-hover:bg-primary/10">
-                        {tech}
-                      </Badge>
+                      <div key={techIndex} className="relative">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-600/30 blur-sm"></div>
+                        <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2 hover:scale-110 transition-transform duration-200 group-hover:bg-primary/10">
+                          {tech}
+                        </Badge>
+                      </div>
                     ))}
                     {project.techStack.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.techStack.length - 3}
-                      </Badge>
+                      <div className="relative">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-400/20 to-gray-500/30 blur-sm"></div>
+                        <Badge variant="outline" className="relative text-xs bg-card/80 backdrop-blur-sm border-2">
+                          +{project.techStack.length - 3}
+                        </Badge>
+                      </div>
                     )}
                   </div>
 
