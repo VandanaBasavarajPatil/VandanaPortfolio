@@ -4,22 +4,22 @@ import { Badge } from "@/components/ui/badge";
 export default function Skills() {
   const skillCategories = [
     {
-      title: "Python & Machine Learning",
-      icon: "🐍",
+      title: "Languages",
+      icon: "💻",
       color: "text-blue-500",
-      skills: ["Python", "Flask", "scikit-learn", "Pandas", "NumPy", "GitHub Actions", "Render"]
+      skills: ["Java", "Python", "HTML", "CSS", "JavaScript"]
     },
     {
-      title: "Java Projects", 
-      icon: "☕",
+      title: "Frameworks/Tools", 
+      icon: "⚙️",
       color: "text-green-500",
-      skills: ["Core Java", "JDBC", "Swing", "SQLite"]
+      skills: ["Flask", "Java Swing", "Git", "GitHub", "VS Code"]
     },
     {
-      title: "Tools & Technologies",
-      icon: "⚡",
+      title: "Databases",
+      icon: "🗄️",
       color: "text-purple-500",
-      skills: ["Git", "HTML", "CSS", "JavaScript", "Replit", "VS Code"]
+      skills: ["MySQL", "SQLite"]
     }
   ];
 
