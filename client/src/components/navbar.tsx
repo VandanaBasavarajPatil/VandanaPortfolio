@@ -69,12 +69,15 @@ export default function Navbar() {
             >
               Contact
             </button>
-            <Button 
+            <Button
               className="bg-accent hover:bg-accent/90 text-white rounded-full px-6"
               size="sm"
+              asChild
             >
-              <Download className="h-4 w-4 mr-2" />
-              Download CV
+              <a href="/VandanaResume.pdf" download="VandanaResume.pdf">
+                <Download className="h-4 w-4 mr-2" />
+                Download CV
+              </a>
             </Button>
           </div>
 
