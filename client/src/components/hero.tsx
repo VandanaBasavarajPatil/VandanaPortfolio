@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Github, Linkedin } from "lucide-react";
-import profileImage from "@assets/new_profile.jpg";
+import profileImage from "@assets/profile _1753894605610.jpg";
 
 export default function Hero() {
   const [text, setText] = useState("");
